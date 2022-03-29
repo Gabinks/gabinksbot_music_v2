@@ -33,7 +33,7 @@ client.distube
   })
 
 
-  .on('empty', channel => channel.send({embeds: [new MessageEmbed()
+  .on('empty', queue => queue.textChannel.send({embeds: [new MessageEmbed()
     .setColor('RED')
     .setDescription('Voice channel is empty! Leaving the channel...')]}
     ))
