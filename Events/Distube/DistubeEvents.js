@@ -49,3 +49,8 @@ client.distube
     .setColor('RED')
     .setDescription('Finished!')]}
     ))
+
+module.exports = {
+  name: "distube",
+  description: "Distube API"
+}
