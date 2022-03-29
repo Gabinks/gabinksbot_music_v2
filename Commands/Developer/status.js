@@ -1,4 +1,6 @@
 const { CommandInteraction, Client, MessageEmbed } = require("discord.js");
+const { connection } = require("mongoose");
+require("../../Events/Client/ready");
 
 module.exports = {
     name: "status",
@@ -12,7 +14,8 @@ module.exports = {
 
         const Response = new MessageEmbed()
         .setColor('AQUA')
-        .setDescription(`**Client**: \`🟢 ONLINE\` - \`${client.ws.ping}ms\`\n **Uptime**: <t:${parseInt(client.readyTimestamp)}:R>`)
+        .setDescription(`**Client**: \`🟢 ONLINE\` - \`${client.ws.ping}ms\`\n **Uptime**: <t:${parseInt(client.readyTimestamp)}:R>\n
+        **Database**: \`${switchTo(connection.readyState)}\``)
 
         interaction.reply({embeds: [Response]});
     }
