@@ -8,6 +8,6 @@ module.exports = {
     */
     execute(client) {
         console.log("The client is now ready")
-        client.user.setActivity('Type "/music play" to play music!', {type: 'LISTENING'})
+        client.user.setActivity('Type "/music play" to play music🎶!', {type: 'LISTENING'})
     }
 }
