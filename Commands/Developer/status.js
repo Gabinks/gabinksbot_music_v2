@@ -14,7 +14,7 @@ module.exports = {
         .setColor('AQUA')
         .setDescription(`**Client: \`🟢 ONLINE\` - \`${client.ws.ping}ms\`\n **Uptime**: <t:${parseInt(client.readyTimestamp)}:R>`)
 
-        interaction.reply({embeds: {Response}})
+        interaction.reply({embeds: [Response]});
     }
 }
 
