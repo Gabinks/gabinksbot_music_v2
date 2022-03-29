@@ -33,7 +33,7 @@ module.exports = {
             const title = await fetch.get(`https://decapi.me/twitch/title/${user}`);
             const game = await fetch.get(`https://decapi.me/twitch/game/${user}`);
 
-            const twitch = require("./../../Commands/Systems/twitchSchema.js");
+            const twitch = require("../Twitch/twitchSchema.js");
             let data = await twitch.findOne({ user: user, title: title.body })
 
             if(uptime.body === `${user} is offline`){
