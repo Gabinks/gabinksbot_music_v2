@@ -11,4 +11,6 @@ const twitch = new Schema({
     }
 })
 
-module.exports = model('twitchSchema', twitch);
+module.exports = model('twitchSchema', twitch){
+    description: 'Twitch'
+}
