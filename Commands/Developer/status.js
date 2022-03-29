@@ -2,7 +2,7 @@ const { CommandInteraction, Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "status",
-    description: "Displays the status of the client and database connection.",
+    description: "Displays the status of the client.",
     /**
      * 
      * @param {CommandInteraction} interaction 
@@ -12,8 +12,7 @@ module.exports = {
 
         const Response = new MessageEmbed()
         .setColor('AQUA')
-        .setDescription(`**Client: \`🟢 ONLINE\` - \`${client.ws.ping}ms\`\n **Uptime**: <t:${parseInt(client.readyTimestamp)}:R>\n
-        **Database**: \`${switchTo(connection.readyState)}\``)
+        .setDescription(`**Client: \`🟢 ONLINE\` - \`${client.ws.ping}ms\`\n **Uptime**: <t:${parseInt(client.readyTimestamp)}:R>\n`)
 
         interaction.reply({embeds: {Response}})
     }

@@ -14,7 +14,7 @@ module.exports = async (client) => {
 
     CommandsArray = [];
 
-    (await PG(`${process.cwd()}/Commands/*.js`)).map(async (file) => {
+    (await PG(`${process.cwd()}/Commands/*/*.js`)).map(async (file) => {
         const command = require(file);
 
         if(!command.name)
