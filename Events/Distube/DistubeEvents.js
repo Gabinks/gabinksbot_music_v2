@@ -14,7 +14,7 @@ client.distube
 
 
   .on('addSong', (queue, song) => queue.textChannel.send({embeds: [new MessageEmbed()
-    .setColor('GREEN')
+    .setColor("GREEN")
     .setDescription(`🎶 | Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)]}
     ))
 
@@ -49,8 +49,3 @@ client.distube
     .setColor('RED')
     .setDescription('Finished!')]}
     ))
-
-module.exports = {
-  name: "distube",
-  description: "Distube API"
-}

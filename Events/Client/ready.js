@@ -1,7 +1,7 @@
 require('dotenv').config();
-const { Client } = require("discord.js")
+const { Client, MessageEmbed } = require("discord.js")
 const mongoose = require("mongoose");
-const { Database } = process.env.DATABASE;
+const Database = process.env.DATABASE;
 module.exports = {
     name: "ready",
     once: true,
@@ -25,7 +25,7 @@ module.exports = {
         setInterval(async function () {
             const fetch = require("node-superfetch");
 
-            let user = "loltyler1"
+            let user = "jbzzed"
 
             const uptime = await fetch.get(`https://decapi.me/twitch/uptime/${user}`);
             const avatar = await fetch.get(`https://decapi.me/twitch/avatar/${user}`);
@@ -38,15 +38,15 @@ module.exports = {
 
             if(uptime.body === `${user} is offline`){
 
-                const embed = new Discord.MessageEmbed()
+                const embed = new MessageEmbed()
                     .setAuthor({ "name": `${user}`, "iconURL": `${avatar.body}` })
                     .setTitle(`${title.body}`)
-                    .setthumbnail(`${avatar.body}`)
+                    .setThumbnail(`${avatar.body}`)
                     .setURL(`https://www.twitch.tv/${user}`)
                     .addField("Game", `${game.body}`, true)
                     .addField("Viewers", `${viewers.body}`, true)
-                    .setimage(`https://static-cdn.jtvnw.net/previews-ttv/live_user_${user}-620x378.jpg`)
-                    .setcolor("BLURPLE")
+                    .setImage(`https://static-cdn.jtvnw.net/previews-ttv/live_user_${user}-620x378.jpg`)
+                    .setColor('BLURPLE')
                     
                 if(!data){
                     const newData = new twitch({
