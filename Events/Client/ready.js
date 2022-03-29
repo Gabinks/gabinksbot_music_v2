@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Client } = require("discord.js")
 const mongoose = require("mongoose");
-const { Database } = require(process.env.Database);
+const { Database } = provess.env.DATABASE;
 module.exports = {
     name: "ready",
     once: true,
