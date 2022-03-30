@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Client, MessageEmbed } = require("discord.js")
 const mongoose = require("mongoose");
 const Database = process.env.DATABASE;
+
 module.exports = {
     name: "ready",
     once: true,
@@ -12,6 +13,7 @@ module.exports = {
         console.log("The client is now ready")
         client.user.setActivity('Type "/music play" to play music🎶!', { type: 'LISTENING' })
 
+        
         if (!Database) return;
         mongoose.connect(Database, {
             useNewUrlParser: true,
