@@ -13,7 +13,7 @@ module.exports = {
             if(!command) return interaction.reply({embeds: [
                 new MessageEmbed()
                 .setColor('RED')
-                .setDescription('⛔ An error occured while runing this command.')
+                .setDescription('⛔ An error occured while running this command.')
             ]}) && client.commands.delete(interaction.commandName);
 
             command.execute(interaction, client)

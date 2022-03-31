@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Client, MessageEmbed } = require("discord.js")
+const path = require('path')
 const mongoose = require("mongoose");
 const Database = process.env.DATABASE;
 
@@ -10,8 +11,35 @@ module.exports = {
     * @param {Client} client
     */
     execute(client) {
+
         console.log("The client is now ready")
         client.user.setActivity('Type "/music play" to play music🎶!', { type: 'LISTENING' })
+
+        //epress section
+
+        const clientDetails = {
+            guilds: client.guilds.cache.size,
+            users: client.users.cache.size,
+            channels: client.channels.cache.size
+        }
+
+        const express = require('express');
+
+        const app = express();
+
+        const port = 3000 || 3001;
+
+        app.get('/', (req, res) => {
+            res
+                .status(200)
+                res.sendFile('landingPage.html', {root: 'pages'});
+        })
+
+        app.get('/info', (req, res) => {
+            res.status(200).send(clientDetails);
+        })
+
+        app.listen(port)
 
         
         if (!Database) return;
